@@ -1,4 +1,5 @@
 autoDetectedPackages:
+- schedule
 - thread
 enableAutoDetect: true
 funcDisplayConfig:
