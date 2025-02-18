@@ -12,11 +12,6 @@ public class Main {
             threads.add(new Thread(()->{
                 lock.lock();
                 for (int i1 = 0; i1 < 10; i1++) {
-                    try {
-                        Thread.sleep(2);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
                     count[0]--;
                 }
                 lock.unlock();
