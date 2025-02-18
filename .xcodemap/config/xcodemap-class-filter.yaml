@@ -1,5 +1,10 @@
 autoDetectedPackages:
+- aqs
+- proxy
 - schedule
+- spi
+- spring.context
+- spring.ioc
 - thread
 enableAutoDetect: true
 funcDisplayConfig:
