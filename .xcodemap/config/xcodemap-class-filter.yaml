@@ -1,5 +1,6 @@
 autoDetectedPackages:
 - aqs
+- collections
 - proxy
 - schedule
 - spi

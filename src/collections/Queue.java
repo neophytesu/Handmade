@@ -1,4 +1,4 @@
-package priorityqueue;
+package collections;
 
 public interface Queue<E> {
     int size();

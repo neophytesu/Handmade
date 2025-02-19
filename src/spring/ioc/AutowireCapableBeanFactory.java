@@ -5,9 +5,9 @@ import java.lang.reflect.Method;
 
 public class AutowireCapableBeanFactory extends AbstractBeanFactory{
         protected void applyPropertyValues(Object bean,BeanDefinition mbd)throws Exception{
-            if (bean instanceof BeanFactoryAware){
-                ((BeanFactoryAware)bean).setBeanFactory(this);
-            }
+//            if (bean instanceof BeanFactoryAware){
+//                ((BeanFactoryAware)bean).setBeanFactory(this);
+//            }
             for (PropertyValue propertyValue : mbd.getPropertyValues().getPropertyValues()) {
                 Object value=propertyValue.value();
                 if (value instanceof BeanReference){
