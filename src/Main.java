@@ -1,15 +1,11 @@
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadInfo;
-import java.lang.management.ThreadMXBean;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.CountDownLatch;
+import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
-        ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads(false, false);
-        for (ThreadInfo threadInfo : threadInfos) {
-            System.out.println("[" + threadInfo.getThreadId() + "] " + threadInfo.getThreadName());
-        }
+        // 获取系统属性
+        Properties properties = System.getProperties();
+
+        // 打印所有系统属性及其值
+        properties.forEach((key, value) -> System.out.println(key + ": " + value));
     }
 }

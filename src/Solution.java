@@ -1,29 +1,34 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-class Solution {
-    static final int INF = 0x3f3f3f3f;
 
-    public int minimumWhiteTiles(String floor, int numCarpets, int carpetLen) {
-        int n = floor.length();
-        int[][] d = new int[n + 1][numCarpets + 1];
-        for (int i = 0; i <= n; i++) {
-            for (int j = 0; j <= numCarpets; j++) {
-                d[i][j] = INF;
+public class Solution {
+    public int[] MySort (int[] arr) {
+        quickSort(arr,0,arr.length-1);
+        return arr;
+    }
+
+    private void quickSort(int[] arr,int left,int right) {
+        if ( left < right) {
+            int i = left;
+            int j = right;
+            int pivot = arr[i];
+            while (i < j) {
+                while (i < j && arr[j] >= pivot) {
+                    j--;
+                }
+                if (i < j) {
+                    arr[i] = arr[j];
+                }
+                while(i < j && arr[i] <= pivot) {
+                    i++;
+                }
+                if (i < j) {
+                    arr[j] = arr[i];
+                }
             }
+            arr[i] = pivot;
+            quickSort(arr,left, i - 1);
+            quickSort(arr,i + 1,right);
         }
-        for (int j = 0; j <= numCarpets; j++) {
-            d[0][j] = 0;
-        }
-        for (int i = 1; i <= n; i++) {
-            d[i][0] = d[i - 1][0] + (floor.charAt(i - 1) == '1' ? 1 : 0);
-        }
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= numCarpets; j++) {
-                d[i][j] = d[i - 1][j] + (floor.charAt(i - 1) == '1' ? 1 : 0);
-                d[i][j] = Math.min(d[i][j], d[Math.max(0, i - carpetLen)][j - 1]);
-            }
-        }
-        return d[n][numCarpets];
     }
 }

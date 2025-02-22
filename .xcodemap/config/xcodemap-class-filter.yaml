@@ -2,6 +2,7 @@ autoDetectedPackages:
 - aqs
 - collections
 - currents
+- io
 - proxy
 - schedule
 - spi
